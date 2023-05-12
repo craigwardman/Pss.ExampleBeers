@@ -7,5 +7,6 @@ public static class ServiceCollectionExtensions
     public static void AddApplicationServices(this IServiceCollection services)
     {
         services.AddTransient<IBeerService, BeerService>();
+        services.AddTransient<IBreweryService, BreweryService>();
     }
 }

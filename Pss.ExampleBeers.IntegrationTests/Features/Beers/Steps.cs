@@ -28,8 +28,8 @@ public class Steps
         await _apiClient.PostAsync(name, percentageAlcoholByVolume);
     }
 
-    [Then(@"I get a success response")]
-    public void ThenIGetASuccessResponse()
+    [Then(@"I get a successful beers response")]
+    public void ThenIGetASuccessfulBeersResponse()
     {
         _apiClient.Response.IsSuccessStatusCode.Should().BeTrue();
     }

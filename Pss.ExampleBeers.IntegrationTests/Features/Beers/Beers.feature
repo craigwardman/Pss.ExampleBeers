@@ -3,19 +3,19 @@ Ability to create and manage beers
 
     Scenario: Create a beer
         When I send a request to create a beer called 'Pragmabrew' that is '8%' by volume
-        Then I get a success response
+        Then I get a successful beers response
         And my new beer is given an ID
 
     Scenario: Get an existing beer
         Given the database contains a beer called 'Pragmabrew' that is '8%' by volume
         When I request the 'Pragmabrew' beer by it's ID
-        Then I get a success response
+        Then I get a successful beers response
         And the returned beer is called 'Pragmabrew' that is '8%' by volume
 
     Scenario: Update a beer
         Given the database contains a beer called 'Pragmabrew' that is '8%' by volume
         When I request to update the 'Pragmabrew' beer to be called 'Craig Dog' that is '6%' by volume
-        Then I get a success response
+        Then I get a successful beers response
         And the returned beer is called 'Craig Dog' that is '6%' by volume
 
     Scenario: Get all beers

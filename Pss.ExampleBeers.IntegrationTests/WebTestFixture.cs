@@ -15,10 +15,12 @@ namespace Pss.ExampleBeers.IntegrationTests;
 public class WebTestFixture : WebApplicationFactory<Program>
 {
     private readonly FakeBeerRepository _fakeBeerRepository;
+    private readonly FakeBreweryRepository _fakeBreweryRepository;
 
-    public WebTestFixture(FakeBeerRepository fakeBeerRepository)
+    public WebTestFixture(FakeBeerRepository fakeBeerRepository, FakeBreweryRepository fakeBreweryRepository)
     {
         _fakeBeerRepository = fakeBeerRepository;
+        _fakeBreweryRepository = fakeBreweryRepository;
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -31,6 +33,7 @@ public class WebTestFixture : WebApplicationFactory<Program>
         {
 #if !UseRealProvider
             services.AddTransient<IBeerRepository>(_ => _fakeBeerRepository.Mock.Object);
+            services.AddTransient<IBreweryRepository>(_ => _fakeBreweryRepository.Mock.Object);
 #else
             services.Configure<MongoDataStoreConfig>(cfg =>
             {

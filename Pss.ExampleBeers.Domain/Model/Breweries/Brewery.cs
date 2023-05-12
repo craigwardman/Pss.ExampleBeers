@@ -12,4 +12,9 @@ public record Brewery(Guid Id, string Name, IReadOnlyList<Beer> BrewedBeers)
     }
 
     public IReadOnlyList<Beer> BrewedBeers => _brewedBeers;
+
+    public static Brewery Create(string name)
+    {
+        return new Brewery(Guid.NewGuid(), name, Array.Empty<Beer>());
+    }
 }

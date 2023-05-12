@@ -15,6 +15,7 @@ namespace Pss.ExampleBeers.MongoDB
             services.AddSingleton<IMongoConnection, MongoConnection>();
 
             services.AddTransient<IBeerRepository, BeerRepository>();
+            services.AddTransient<IBreweryRepository, BreweryRepository>();
         }
     }
 }
