@@ -16,11 +16,13 @@ public class WebTestFixture : WebApplicationFactory<Program>
 {
     private readonly FakeBeerRepository _fakeBeerRepository;
     private readonly FakeBreweryRepository _fakeBreweryRepository;
+    private readonly FakeBarRepository _fakeBarRepository;
 
-    public WebTestFixture(FakeBeerRepository fakeBeerRepository, FakeBreweryRepository fakeBreweryRepository)
+    public WebTestFixture(FakeBeerRepository fakeBeerRepository, FakeBreweryRepository fakeBreweryRepository, FakeBarRepository fakeBarRepository)
     {
         _fakeBeerRepository = fakeBeerRepository;
         _fakeBreweryRepository = fakeBreweryRepository;
+        _fakeBarRepository = fakeBarRepository;
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -34,6 +36,7 @@ public class WebTestFixture : WebApplicationFactory<Program>
 #if !UseRealProvider
             services.AddTransient<IBeerRepository>(_ => _fakeBeerRepository.Mock.Object);
             services.AddTransient<IBreweryRepository>(_ => _fakeBreweryRepository.Mock.Object);
+            services.AddTransient<IBarRepository>(_ => _fakeBarRepository.Mock.Object);
 #else
             services.Configure<MongoDataStoreConfig>(cfg =>
             {

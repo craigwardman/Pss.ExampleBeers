@@ -12,4 +12,9 @@ public record Bar(Guid Id, string Name, string Address, IReadOnlyList<Beer> Serv
     }
 
     public IReadOnlyList<Beer> ServedBeers => _servedBeers;
+
+    public static Bar Create(string name, string address)
+    {
+        return new(Guid.NewGuid(), name, address, Array.Empty<Beer>());
+    }
 }

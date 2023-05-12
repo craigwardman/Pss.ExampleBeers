@@ -1,4 +1,5 @@
 using Pss.ExampleBeers.Api.Models;
+using Pss.ExampleBeers.Domain.Model.Bars;
 using Pss.ExampleBeers.Domain.Model.Beers;
 using Pss.ExampleBeers.Domain.Model.Breweries;
 using Pss.ExampleBeers.MongoDB.Mongo;
@@ -42,6 +43,23 @@ public class Steps
     {
         TestDataStore.Repository<Brewery>(BreweriesCollection.Name).Items = table.CreateSet<BreweryRequestModel>()
             .Select(r => Brewery.Create(r.Name))
+            .ToArray();
+    }
+    
+    [Given(@"the database contains a bar called '(.*)' at address '(.*)'")]
+    public void GivenTheDatabaseContainsABarCalled(string name, string address)
+    {
+        TestDataStore.Repository<Bar>(BarsCollection.Name).Items = new[]
+        {
+            Bar.Create(name, address)
+        };
+    }
+
+    [Given(@"the database contains several bars, as per below")]
+    public void GivenTheDatabaseContainsSeveralBarsAsPerBelow(Table table)
+    {
+        TestDataStore.Repository<Bar>(BarsCollection.Name).Items = table.CreateSet<BarRequestModel>()
+            .Select(r => Bar.Create(r.Name, r.Address))
             .ToArray();
     }
 }

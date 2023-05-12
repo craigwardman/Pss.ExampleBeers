@@ -1,4 +1,5 @@
-﻿using Pss.ExampleBeers.Domain.Model.Beers;
+﻿using Pss.ExampleBeers.Domain.Model.Bars;
+using Pss.ExampleBeers.Domain.Model.Beers;
 using Pss.ExampleBeers.Domain.Model.Breweries;
 using Pss.ExampleBeers.MongoDB.Mongo;
 using TechTalk.SpecFlow;
@@ -35,6 +36,14 @@ public class TestDataSourceHooks
         TestDataStore.AddRepository<Brewery>(cfg =>
         {
             cfg.WithName(BreweriesCollection.Name);
+#if UseRealProvider
+            cfg.WithBackingStore(mongoBackingStore);
+#endif
+        });
+        
+        TestDataStore.AddRepository<Bar>(cfg =>
+        {
+            cfg.WithName(BarsCollection.Name);
 #if UseRealProvider
             cfg.WithBackingStore(mongoBackingStore);
 #endif
