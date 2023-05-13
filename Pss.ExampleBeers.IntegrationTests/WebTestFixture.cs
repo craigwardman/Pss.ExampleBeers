@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Pss.ExampleBeers.IntegrationTests.Fakes;
 using Pss.ExampleBeers.Models.Interfaces;
+using Pss.ExampleBeers.Models.Model.Beers;
 using Pss.ExampleBeers.MongoDB;
 using Pss.ExampleBeers.MongoDB.Mongo;
 using TestDataDefinitionFramework.Core;
