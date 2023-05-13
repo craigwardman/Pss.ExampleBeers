@@ -1,7 +1,6 @@
-using Pss.ExampleBeers.Domain.Model.Beers;
-using Pss.ExampleBeers.Domain.Model.Breweries;
+using Pss.ExampleBeers.Models.Model.Breweries;
 
-namespace Pss.ExampleBeers.Domain.Interfaces;
+namespace Pss.ExampleBeers.Models.Interfaces;
 
 public interface IBreweryRepository
 {

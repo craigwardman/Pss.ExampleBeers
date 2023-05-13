@@ -2,7 +2,7 @@ using System.Diagnostics;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using Pss.ExampleBeers.Api.Models;
-using Pss.ExampleBeers.Domain.Model.Beers;
+using Pss.ExampleBeers.Models.Model.Beers;
 using Pss.ExampleBeers.MongoDB.Mongo;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

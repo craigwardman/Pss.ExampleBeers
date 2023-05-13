@@ -1,5 +1,5 @@
 using Pss.ExampleBeers.Api.Models;
-using Pss.ExampleBeers.Domain.Model.Beers;
+using Pss.ExampleBeers.Models.Model.Beers;
 
 namespace Pss.ExampleBeers.IntegrationTests.Features.Beers;
 

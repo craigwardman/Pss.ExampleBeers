@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using FluentAssertions;
 using Pss.ExampleBeers.Api.Models;
-using Pss.ExampleBeers.Domain.Model.Bars;
+using Pss.ExampleBeers.Models.Model.Bars;
 using Pss.ExampleBeers.MongoDB.Mongo;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

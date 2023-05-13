@@ -4,9 +4,9 @@ using Pss.ExampleBeers.Models.Model.Breweries;
 
 namespace Pss.ExampleBeers.MongoDB.Mongo;
 
-public class BreweriesCollection : IBootstrapped
+public class BreweryBeersCollection : IBootstrapped
 {
-    public const string Name = "breweries";
+    public const string Name = "breweryBeers";
     
     public void Setup(IMongoDatabase database)
     {
@@ -16,12 +16,12 @@ public class BreweriesCollection : IBootstrapped
     
     private static void RegisterClassMaps()
     {
-        if (!BsonClassMap.IsClassMapRegistered(typeof(Brewery)))
+        if (!BsonClassMap.IsClassMapRegistered(typeof(BreweryBeer)))
         {
-            BsonClassMap.RegisterClassMap<Brewery>(dataMap =>
+            BsonClassMap.RegisterClassMap<BreweryBeer>(dataMap =>
             {
                 dataMap.AutoMap();
-                dataMap.MapIdProperty(m => m.Id);
+                dataMap.SetIgnoreExtraElements(true);
             });
         }
     }

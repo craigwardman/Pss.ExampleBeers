@@ -1,6 +1,6 @@
 using MongoDB.Driver;
-using Pss.ExampleBeers.Domain.Interfaces;
-using Pss.ExampleBeers.Domain.Model.Bars;
+using Pss.ExampleBeers.Models.Interfaces;
+using Pss.ExampleBeers.Models.Model.Bars;
 using Pss.ExampleBeers.MongoDB.Mongo;
 
 namespace Pss.ExampleBeers.MongoDB;

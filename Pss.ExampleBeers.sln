@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.Api", "Pss
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.MongoDB", "Pss.ExampleBeers.MongoDB\Pss.ExampleBeers.MongoDB.csproj", "{6C9411CD-B6A4-4334-BEAA-7A9D90052A78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.Domain", "Pss.ExampleBeers.Domain\Pss.ExampleBeers.Domain.csproj", "{C3E87255-EB4E-4D82-BBE1-3D76C3CE289D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.Models", "Pss.ExampleBeers.Models\Pss.ExampleBeers.Models.csproj", "{C3E87255-EB4E-4D82-BBE1-3D76C3CE289D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.ApplicationServices", "Pss.ExampleBeers.ApplicationServices\Pss.ExampleBeers.ApplicationServices.csproj", "{FA60F7B3-D8B7-4289-A442-48438D4EAD0B}"
 EndProject

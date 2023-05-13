@@ -1,4 +1,4 @@
-using Pss.ExampleBeers.Domain.Model.Breweries;
+using Pss.ExampleBeers.Models.Model.Breweries;
 
 namespace Pss.ExampleBeers.ApplicationServices;
 

@@ -1,6 +1,6 @@
-using Pss.ExampleBeers.Domain.Model.Bars;
+using Pss.ExampleBeers.Models.Model.Bars;
 
-namespace Pss.ExampleBeers.Domain.Interfaces;
+namespace Pss.ExampleBeers.Models.Interfaces;
 
 public interface IBarRepository
 {

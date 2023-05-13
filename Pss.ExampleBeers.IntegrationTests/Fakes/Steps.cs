@@ -1,7 +1,7 @@
 using Pss.ExampleBeers.Api.Models;
-using Pss.ExampleBeers.Domain.Model.Bars;
-using Pss.ExampleBeers.Domain.Model.Beers;
-using Pss.ExampleBeers.Domain.Model.Breweries;
+using Pss.ExampleBeers.Models.Model.Bars;
+using Pss.ExampleBeers.Models.Model.Beers;
+using Pss.ExampleBeers.Models.Model.Breweries;
 using Pss.ExampleBeers.MongoDB.Mongo;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

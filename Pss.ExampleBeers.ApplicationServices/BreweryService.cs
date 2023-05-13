@@ -1,12 +1,12 @@
-using Pss.ExampleBeers.Domain.Interfaces;
-using Pss.ExampleBeers.Domain.Model.Breweries;
+using Pss.ExampleBeers.Models.Interfaces;
+using Pss.ExampleBeers.Models.Model.Breweries;
 
 namespace Pss.ExampleBeers.ApplicationServices;
 
 public class BreweryService : IBreweryService
 {
     private readonly IBreweryRepository _breweryRepository;
-
+    
     public BreweryService(IBreweryRepository breweryRepository)
     {
         _breweryRepository = breweryRepository ?? throw new ArgumentNullException(nameof(breweryRepository));

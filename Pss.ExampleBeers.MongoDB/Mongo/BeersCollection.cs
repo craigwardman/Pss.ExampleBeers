@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
-using Pss.ExampleBeers.Domain.Model.Beers;
+using Pss.ExampleBeers.Models.Model.Beers;
 
 namespace Pss.ExampleBeers.MongoDB.Mongo;
 

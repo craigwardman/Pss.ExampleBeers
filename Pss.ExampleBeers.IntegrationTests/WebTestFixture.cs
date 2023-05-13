@@ -2,9 +2,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
-using Pss.ExampleBeers.Domain.Interfaces;
-using Pss.ExampleBeers.Domain.Model.Beers;
 using Pss.ExampleBeers.IntegrationTests.Fakes;
+using Pss.ExampleBeers.Models.Interfaces;
 using Pss.ExampleBeers.MongoDB;
 using Pss.ExampleBeers.MongoDB.Mongo;
 using TestDataDefinitionFramework.Core;
@@ -17,12 +16,15 @@ public class WebTestFixture : WebApplicationFactory<Program>
     private readonly FakeBeerRepository _fakeBeerRepository;
     private readonly FakeBreweryRepository _fakeBreweryRepository;
     private readonly FakeBarRepository _fakeBarRepository;
+    private readonly FakeBreweryBeersRepository _fakeBreweryBeersRepository;
 
-    public WebTestFixture(FakeBeerRepository fakeBeerRepository, FakeBreweryRepository fakeBreweryRepository, FakeBarRepository fakeBarRepository)
+    public WebTestFixture(FakeBeerRepository fakeBeerRepository, FakeBreweryRepository fakeBreweryRepository, FakeBarRepository fakeBarRepository,
+        FakeBreweryBeersRepository fakeBreweryBeersRepository)
     {
         _fakeBeerRepository = fakeBeerRepository;
         _fakeBreweryRepository = fakeBreweryRepository;
         _fakeBarRepository = fakeBarRepository;
+        _fakeBreweryBeersRepository = fakeBreweryBeersRepository;
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -37,6 +39,7 @@ public class WebTestFixture : WebApplicationFactory<Program>
             services.AddTransient<IBeerRepository>(_ => _fakeBeerRepository.Mock.Object);
             services.AddTransient<IBreweryRepository>(_ => _fakeBreweryRepository.Mock.Object);
             services.AddTransient<IBarRepository>(_ => _fakeBarRepository.Mock.Object);
+            services.AddTransient<IBreweryBeersRepository>(_ => _fakeBreweryBeersRepository.Mock.Object);
 #else
             services.Configure<MongoDataStoreConfig>(cfg =>
             {

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Pss.ExampleBeers.Api.Models;
 using Pss.ExampleBeers.ApplicationServices;
+using Pss.ExampleBeers.Models.Model.Beers;
 
 namespace Pss.ExampleBeers.Api.Controllers;
 
@@ -16,6 +17,7 @@ public class BeerController : Controller
     }
 
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<IActionResult> Post(BeerRequestModel requestModel)
     {
         var beer = await _beerService.CreateAsync(requestModel.Name, requestModel.PercentageAlcoholByVolume);
@@ -24,6 +26,8 @@ public class BeerController : Controller
     }
     
     [HttpGet]
+    [ProducesResponseType(typeof(IReadOnlyList<Beer>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> Get(double? gtAlcoholByVolume, double? ltAlcoholByVolume)
     {
         var beers = await _beerService.GetAsync(gtAlcoholByVolume, ltAlcoholByVolume);
@@ -32,6 +36,8 @@ public class BeerController : Controller
     }
 
     [HttpGet("{id:guid}")]
+    [ProducesResponseType(typeof(Beer), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Get(Guid id)
     {
         var beer = await _beerService.GetAsync(id);
@@ -41,6 +47,8 @@ public class BeerController : Controller
     }
 
     [HttpPut("{id:guid}")]
+    [ProducesResponseType(typeof(Beer), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Put(Guid id, BeerRequestModel requestModel)
     {
         var beer = await _beerService.UpdateAsync(id, requestModel.Name, requestModel.PercentageAlcoholByVolume);

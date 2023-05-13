@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Pss.ExampleBeers.Api.Models;
 using Pss.ExampleBeers.ApplicationServices;
+using Pss.ExampleBeers.Models.Model.Bars;
 
 namespace Pss.ExampleBeers.Api.Controllers;
 
@@ -16,6 +17,7 @@ public class BarController : Controller
     }
 
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<IActionResult> Post(BarRequestModel requestModel)
     {
         var bar = await _barService.CreateAsync(requestModel.Name, requestModel.Address);
@@ -24,6 +26,8 @@ public class BarController : Controller
     }
     
     [HttpGet]
+    [ProducesResponseType(typeof(IReadOnlyList<Bar>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> Get()
     {
         var breweries = await _barService.GetAsync();
@@ -32,6 +36,8 @@ public class BarController : Controller
     }
 
     [HttpGet("{id:guid}")]
+    [ProducesResponseType(typeof(Bar), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Get(Guid id)
     {
         var bar = await _barService.GetAsync(id);
@@ -41,6 +47,8 @@ public class BarController : Controller
     }
 
     [HttpPut("{id:guid}")]
+    [ProducesResponseType(typeof(Bar), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Put(Guid id, BarRequestModel requestModel)
     {
         var bar = await _barService.UpdateAsync(id, requestModel.Name, requestModel.Address);

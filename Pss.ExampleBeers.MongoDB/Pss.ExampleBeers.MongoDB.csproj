@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Pss.ExampleBeers.Domain\Pss.ExampleBeers.Domain.csproj" />
+      <ProjectReference Include="..\Pss.ExampleBeers.Models\Pss.ExampleBeers.Models.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pss.ExampleBeers.Domain.Interfaces;
+using Pss.ExampleBeers.Models.Interfaces;
 using Pss.ExampleBeers.MongoDB.Mongo;
 
 namespace Pss.ExampleBeers.MongoDB
@@ -15,7 +15,9 @@ namespace Pss.ExampleBeers.MongoDB
             services.AddSingleton<IMongoConnection, MongoConnection>();
 
             services.AddTransient<IBeerRepository, BeerRepository>();
+            services.AddTransient<IBarRepository, BarRepository>();
             services.AddTransient<IBreweryRepository, BreweryRepository>();
+            services.AddTransient<IBreweryBeersRepository, BreweryBeersRepository>();
         }
     }
 }

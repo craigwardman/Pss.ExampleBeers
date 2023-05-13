@@ -1,4 +1,4 @@
-namespace Pss.ExampleBeers.Domain.Model.Beers;
+namespace Pss.ExampleBeers.Models.Model.Beers;
 
 public record Beer(Guid Id, string Name, double PercentageAlcoholByVolume)
 {

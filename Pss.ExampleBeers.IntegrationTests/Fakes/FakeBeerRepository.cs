@@ -1,6 +1,6 @@
 using Moq;
-using Pss.ExampleBeers.Domain.Interfaces;
-using Pss.ExampleBeers.Domain.Model.Beers;
+using Pss.ExampleBeers.Models.Interfaces;
+using Pss.ExampleBeers.Models.Model.Beers;
 using Pss.ExampleBeers.MongoDB.Mongo;
 using TestDataDefinitionFramework.Core;
 
@@ -30,7 +30,7 @@ public class FakeBeerRepository
     
     private static Beer? GetInMemoryBeer(Guid id)
     {
-        return TestDataStore.Repository<Beer>(BeersCollection.Name).Items
+        return TestDataStore.Repository<Beer>(BeersCollection.Name).Items?
             .SingleOrDefault(b => b.Id == id);
     }
 }
