@@ -12,5 +12,6 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IBreweryBeersService, BreweryBeersService>();
         
         services.AddTransient<IBarService, BarService>();
+        services.AddTransient<IBarBeersService, BarBeersService>();
     }
 }

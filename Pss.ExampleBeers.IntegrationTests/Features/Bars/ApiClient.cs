@@ -52,4 +52,31 @@ public class ApiClient
 
         return Array.Empty<Bar>();
     }
+    
+    public async Task LinkBeerAsync(Guid barId, Guid beerId)
+    {
+        Response = await _httpClient.PostAsJsonAsync("bar/beer", new BarBeerLinkModel(barId, beerId));
+    }
+
+    public async Task<BarWithBeers?> GetBeersAsync(Guid id)
+    {
+        Response = await _httpClient.GetAsync($"bar/{id}/beer");
+        if (Response.IsSuccessStatusCode)
+        {
+            return await Response.Content.ReadAsAsync<BarWithBeers>();
+        }
+
+        return null;
+    }
+
+    public async Task<IReadOnlyList<BarWithBeers>> GetBeersAsync()
+    {
+        Response = await _httpClient.GetAsync($"bar/beer");
+        if (Response.IsSuccessStatusCode)
+        {
+            return await Response.Content.ReadAsAsync<List<BarWithBeers>>();
+        }
+
+        return Array.Empty<BarWithBeers>();
+    }
 }

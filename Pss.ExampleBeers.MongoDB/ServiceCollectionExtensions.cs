@@ -16,6 +16,7 @@ namespace Pss.ExampleBeers.MongoDB
 
             services.AddTransient<IBeerRepository, BeerRepository>();
             services.AddTransient<IBarRepository, BarRepository>();
+            services.AddTransient<IBarBeersRepository, BarBeersRepository>();
             services.AddTransient<IBreweryRepository, BreweryRepository>();
             services.AddTransient<IBreweryBeersRepository, BreweryBeersRepository>();
         }

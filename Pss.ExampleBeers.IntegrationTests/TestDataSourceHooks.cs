@@ -57,6 +57,14 @@ public class TestDataSourceHooks
 #endif
         });
         
+        TestDataStore.AddRepository<BarBeer>(cfg =>
+        {
+            cfg.WithName(BarBeersCollection.Name);
+#if UseRealProvider
+            cfg.WithBackingStore(mongoBackingStore);
+#endif
+        });
+        
         await TestDataStore.InitializeAllAsync();
     }
 

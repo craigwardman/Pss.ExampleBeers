@@ -62,6 +62,12 @@
       <DesignTime>true</DesignTime>
       <Visible>true</Visible>
     </Compile>
+    <Compile Update="Features\Bars\BarBeers.feature.cs">
+      <DependentUpon>BreweryBeers.feature</DependentUpon>
+      <AutoGen>true</AutoGen>
+      <DesignTime>true</DesignTime>
+      <Visible>true</Visible>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
