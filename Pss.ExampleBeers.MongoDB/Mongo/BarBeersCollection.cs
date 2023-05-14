@@ -12,6 +12,7 @@ public class BarBeersCollection : IBootstrapped
     {
         RegisterClassMaps();
         CreateCollections(database);
+        CreateIndices(database);
     }
 
     private static void RegisterClassMaps()
@@ -22,6 +23,15 @@ public class BarBeersCollection : IBootstrapped
                 dataMap.AutoMap();
                 dataMap.SetIgnoreExtraElements(true);
             });
+    }
+    
+    private static void CreateIndices(IMongoDatabase database)
+    {
+        database.GetCollection<BarBeer>(Name).Indexes.CreateOne(
+            new CreateIndexModel<BarBeer>(
+                Builders<BarBeer>.IndexKeys
+                    .Ascending(l => l.BarId))
+        );
     }
 
     private static void CreateCollections(IMongoDatabase database)

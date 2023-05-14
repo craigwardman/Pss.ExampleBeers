@@ -12,6 +12,7 @@ public class BreweryBeersCollection : IBootstrapped
     {
         RegisterClassMaps();
         CreateCollections(database);
+        CreateIndices(database);
     }
     
     private static void RegisterClassMaps()
@@ -24,6 +25,15 @@ public class BreweryBeersCollection : IBootstrapped
                 dataMap.SetIgnoreExtraElements(true);
             });
         }
+    }
+    
+    private static void CreateIndices(IMongoDatabase database)
+    {
+        database.GetCollection<BreweryBeer>(Name).Indexes.CreateOne(
+            new CreateIndexModel<BreweryBeer>(
+                Builders<BreweryBeer>.IndexKeys
+                    .Ascending(l => l.BreweryId))
+        );
     }
 
     private static void CreateCollections(IMongoDatabase database)
