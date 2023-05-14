@@ -13,7 +13,7 @@ public class BeerController : Controller
 
     public BeerController(IBeerService beerService)
     {
-        _beerService = beerService;
+        _beerService = beerService ?? throw new ArgumentNullException(nameof(beerService));
     }
 
     [HttpPost]

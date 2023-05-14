@@ -25,8 +25,8 @@ public class BreweryBeersController : Controller
     {
         var (brewery, beer) = await _breweryBeersService.LinkBeerAsync(linkModel.BreweryId, linkModel.BeerId);
 
-        if (brewery == null) return ValidationProblem($"Brewery with ID {linkModel.BreweryId} could not be found.");
-        if (beer == null) return ValidationProblem($"Beer with ID {linkModel.BeerId} could not be found.");
+        if (brewery == null) return ValidationProblem($"Brewery with ID {linkModel.BreweryId} could not be found.", statusCode: StatusCodes.Status400BadRequest);
+        if (beer == null) return ValidationProblem($"Beer with ID {linkModel.BeerId} could not be found.", statusCode: StatusCodes.Status400BadRequest);
 
         return NoContent();
     }

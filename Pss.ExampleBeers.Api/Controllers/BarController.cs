@@ -13,7 +13,7 @@ public class BarController : Controller
 
     public BarController(IBarService barService)
     {
-        _barService = barService;
+        _barService = barService ?? throw new ArgumentNullException(nameof(barService));
     }
 
     [HttpPost]
