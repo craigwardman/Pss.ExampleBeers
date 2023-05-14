@@ -4,13 +4,6 @@ using Pss.ExampleBeers.Models.Model.Beers;
 
 namespace Pss.ExampleBeers.ApplicationServices;
 
-public interface IBarBeersService
-{
-    Task<(Bar? bar, Beer? beer)> LinkBeerAsync(Guid barId, Guid beerId);
-    Task<BarWithBeers?> GetBarBeersAsync(Guid barId);
-    Task<IReadOnlyList<BarWithBeers>> GetBarBeersAsync();
-}
-
 public class BarBeersService : IBarBeersService
 {
     private readonly IBarBeersRepository _barBeerRepository;

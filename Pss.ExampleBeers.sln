@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.Api.UnitTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.ApplicationServices.UnitTests", "Pss.ExampleBeers.ApplicationServices.UnitTests\Pss.ExampleBeers.ApplicationServices.UnitTests.csproj", "{EF85C409-282C-4336-87E0-78E728EC0904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.Domain.UnitTests", "Pss.ExampleBeers.Domain.UnitTests\Pss.ExampleBeers.Domain.UnitTests.csproj", "{F50AA7A5-6382-4FC5-A6AB-A1BD3E0B81C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.Model.UnitTests", "Pss.ExampleBeers.Model.UnitTests\Pss.ExampleBeers.Model.UnitTests.csproj", "{F50AA7A5-6382-4FC5-A6AB-A1BD3E0B81C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pss.ExampleBeers.MongoDB.UnitTests", "Pss.ExampleBeers.MongoDB.UnitTests\Pss.ExampleBeers.MongoDB.UnitTests.csproj", "{B8785BFF-73A0-4B1E-ABE7-896D9B477FF7}"
 EndProject
